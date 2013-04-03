@@ -47,7 +47,12 @@
       };
       render();
 */
-onload = function() {
+</script>
+    <h1><%= title %></h1>
+	<canvas id="canvas"></div>
+  </body>
+<script type="text/javascript">
+(function() {
 	// 描画コンテキストの取得
 	canvas = document.getElementById('canvas');
 	if ( ! canvas || ! canvas.getContext ) { return false; }
@@ -55,7 +60,6 @@ onload = function() {
 
 	// フォント設定
 	ctx.font = "12pt  Helvetica";
-
 	window.addEventListener("devicemotion", function(event){
 		ctx.clearRect(0, 0, 300, 400);
 		var x_a = event.acceleration.x;
@@ -71,10 +75,7 @@ onload = function() {
 		ctx.fillText("Y傾き : "+y_g, 20, 100);
 		ctx.fillText("Z傾き : "+z_g, 20, 120);
 	}, true);
-};
+})();
 setTimeout("scrollTo(0,1)", 50);
 </script>
-    <h1><%= title %></h1>
-	<div id="canvas"></div>
-  </body>
 </html>

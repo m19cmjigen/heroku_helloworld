@@ -7,7 +7,7 @@ to start up node process at heroku.
 ```
 heroku ps:scale web=1
 ```
-if you want stop node application.
+if you want stop node process
 ```
 heroku ps:stop web=1
 ```
