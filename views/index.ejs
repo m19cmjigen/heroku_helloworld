@@ -5,6 +5,7 @@
   <body>
 	<script type="text/javascript" src="javascripts/three.min.js"></script>
     <script>
+/*
       // (1)レンダラの初期化
       var renderer = new THREE.WebGLRenderer({ antialias:true });
       renderer.setSize(500, 500);
@@ -45,7 +46,32 @@
         renderer.render(scene, camera);
       };
       render();
+*/
+	// 描画コンテキストの取得
+	canvas = document.getElementById('canvas');
+	if ( ! canvas || ! canvas.getContext ) { return false; }
+	ctx = canvas.getContext('2d');
+
+	// フォント設定
+	ctx.font = "12pt  Helvetica";
+
+	window.addEventListener("devicemotion", function(event){
+		ctx.clearRect(0, 0, 300, 400);
+		var x_a = event.acceleration.x;
+		var y_a = event.acceleration.y;
+		var z_a = event.acceleration.z;
+		var x_g = event.accelerationIncludingGravity.x;
+		var y_g = event.accelerationIncludingGravity.y;
+		var z_g = event.accelerationIncludingGravity.z;
+		ctx.fillText("X : "+x_a, 20, 20);
+		ctx.fillText("Y : "+y_a, 20, 40);
+		ctx.fillText("Z : "+z_a, 20, 60);
+		ctx.fillText("X傾き : "+x_g, 20, 80);
+		ctx.fillText("Y傾き : "+y_g, 20, 100);
+		ctx.fillText("Z傾き : "+z_g, 20, 120);
+	}, true);
     </script>
     <h1><%= title %></h1>
+	<div id="canvas"></div>
   </body>
 </html>
