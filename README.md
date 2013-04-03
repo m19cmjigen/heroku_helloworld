@@ -3,6 +3,7 @@ heroku_helloworld
 
 express sample at heroku platform
 
+to start up node process at heroku.
 ```
 heroku ps:scale web=1
 ```

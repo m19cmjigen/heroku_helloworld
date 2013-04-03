@@ -47,6 +47,7 @@
       };
       render();
 */
+onload = function() {
 	// 描画コンテキストの取得
 	canvas = document.getElementById('canvas');
 	if ( ! canvas || ! canvas.getContext ) { return false; }
@@ -70,7 +71,9 @@
 		ctx.fillText("Y傾き : "+y_g, 20, 100);
 		ctx.fillText("Z傾き : "+z_g, 20, 120);
 	}, true);
-    </script>
+};
+setTimeout("scrollTo(0,1)", 50);
+</script>
     <h1><%= title %></h1>
 	<div id="canvas"></div>
   </body>
