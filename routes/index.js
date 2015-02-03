@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'hoge' });
+  res.render('index', { title: 'explorer' });
 };
