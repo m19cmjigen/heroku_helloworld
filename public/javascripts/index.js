@@ -45,6 +45,6 @@ for( i = 0 ; i<100 ; i++) {
 		ctx.fillText("X傾き : "+x_g, 20, 80);
 		ctx.fillText("Y傾き : "+y_g, 20, 100);
 		ctx.fillText("Z傾き : "+z_g, 20, 120);
-        render(x_g, y_g, z_g);
+        render(x_g/5, y_g/5, z_g/5);
 	}, true);
 
