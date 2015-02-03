@@ -16,13 +16,14 @@ cube.overdraw=true;
 scene.add( cube );
 camera.position.z = 500;
 
-function render(x, y) {
+function render(x, y, z) {
 //    requestAnimationFrame(render);
     cube.rotation.x = x;
     cube.rotation.y = y;
+    cube.rotation.z = z;
     renderer.render(scene, camera);
 }
-render(0, 0);
+render(0, 0, 0);
 
 /* debug 
 for( i = 0 ; i<100 ; i++) {
@@ -44,6 +45,6 @@ for( i = 0 ; i<100 ; i++) {
 		ctx.fillText("X傾き : "+x_g, 20, 80);
 		ctx.fillText("Y傾き : "+y_g, 20, 100);
 		ctx.fillText("Z傾き : "+z_g, 20, 120);
-        render(x_g, y_g);
+        render(x_g, y_g, z_g);
 	}, true);
 
