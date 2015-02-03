@@ -1,40 +1,19 @@
-// (1)レンダラの初期化
-var renderer = new THREE.WebGLRenderer({ antialias:true });
-renderer.setSize(500, 500);
-renderer.setClearColorHex(0x000000, 1);
-document.body.appendChild(renderer.domElement);
-
-// (2)シーンの作成
 var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+var geometry = new THREE.CubeGeometry(1,1,1);
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+camera.position.z = 5;
 
-// (3)カメラの作成
-var camera = new THREE.PerspectiveCamera(15, 500 / 500);
-camera.position = new THREE.Vector3(0, 0, 8);
-camera.lookAt(new THREE.Vector3(0, 0, 0));
-scene.add(camera);
-
-// (4)ライトの作成
-var light = new THREE.DirectionalLight(0xcccccc);
-light.position = new THREE.Vector3(0.577, 0.577, 0.577);
-scene.add(light);
-
-var ambient = new THREE.AmbientLight(0x333333);
-scene.add(ambient);
-
-// (5)表示する物体の作成
-var geometry = new THREE.SphereGeometry(1, 32, 16);
-var material = new THREE.MeshPhongMaterial({
-  color: 0xffffff, ambient: 0xffffff,
-  specular: 0xcccccc, shininess:50, metal:true,
-  map: THREE.ImageUtils.loadTexture('images/matanzas_big.jpg') });
-var mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
-
-// (6)レンダリング
-var baseTime = +new Date;
 function render() {
-  requestAnimationFrame(render);
-  mesh.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
-  renderer.render(scene, camera);
-};
+        requestAnimationFrame(render);
+        cube.rotation.x += 0.1;
+        cube.rotation.y += 0.1;
+        renderer.render(scene, camera);
+}
 render();
+
