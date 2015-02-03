@@ -18,8 +18,8 @@ camera.position.z = 500;
 
 function render(x, y) {
 //    requestAnimationFrame(render);
-    cube.rotation.x += x;
-    cube.rotation.y += y;
+    cube.rotation.x = x;
+    cube.rotation.y = y;
     renderer.render(scene, camera);
 }
 render(0, 0);
